@@ -22,12 +22,12 @@ namespace Project_final2.Pages.Players
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Player == null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players.FirstOrDefaultAsync(m => m.PlayerID == id);
+            var player = await _context.Player.FirstOrDefaultAsync(m => m.PlayerID == id);
             if (player == null)
             {
                 return NotFound();

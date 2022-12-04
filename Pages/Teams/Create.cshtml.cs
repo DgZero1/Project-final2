@@ -30,12 +30,12 @@ namespace Project_final2.Pages.Teams
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Teams == null || Team == null)
+          if (!ModelState.IsValid || _context.Team == null || Team == null)
             {
                 return Page();
             }
 
-            _context.Teams.Add(Team);
+            _context.Team.Add(Team);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

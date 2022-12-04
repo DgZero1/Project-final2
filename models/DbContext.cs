@@ -9,7 +9,7 @@ namespace Final
 			: base(options)
 		{
 		}
-		public DbSet <Team> Teams {get; set;} = null!;
-        public DbSet <Player> Players {get; set;} = null!;
+		public DbSet <Team> Team {get; set;} = default!;
+        public DbSet <Player> Player {get; set;} = default!;
 	}
 }

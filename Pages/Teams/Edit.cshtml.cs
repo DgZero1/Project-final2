@@ -24,12 +24,12 @@ namespace Project_final2.Pages.Teams
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Teams == null)
+            if (id == null || _context.Team == null)
             {
                 return NotFound();
             }
 
-            var team =  await _context.Teams.FirstOrDefaultAsync(m => m.TeamID == id);
+            var team =  await _context.Team.FirstOrDefaultAsync(m => m.TeamID == id);
             if (team == null)
             {
                 return NotFound();
@@ -70,7 +70,7 @@ namespace Project_final2.Pages.Teams
 
         private bool TeamExists(int id)
         {
-          return (_context.Teams?.Any(e => e.TeamID == id)).GetValueOrDefault();
+          return (_context.Team?.Any(e => e.TeamID == id)).GetValueOrDefault();
         }
     }
 }

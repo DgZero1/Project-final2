@@ -36,7 +36,7 @@ namespace Project_final2.Pages.Players
 
         public async Task OnGetAsync()
         {
-            var query =_context.Players.Select(p => p);
+            var query =_context.Player.Select(p => p);
             
             switch (CurrentSort)
                 {
@@ -51,9 +51,9 @@ namespace Project_final2.Pages.Players
                    
                 }
 
-            if (_context.Players != null)
+            if (_context.Player != null)
             {
-                Player = await _context.Players.Skip((PageNum-1)*PageSize).Take(PageSize)
+                Player = await _context.Player.Skip((PageNum-1)*PageSize).Take(PageSize)
                 .Include(p => p.Team).ToListAsync();
             }
         }

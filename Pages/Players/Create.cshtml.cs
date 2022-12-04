@@ -20,7 +20,7 @@ namespace Project_final2.Pages.Players
 
         public IActionResult OnGet()
         {
-        ViewData["TeamID"] = new SelectList(_context.Teams, "TeamID", "TeamID");
+        ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "TeamID");
             return Page();
         }
 
@@ -31,12 +31,12 @@ namespace Project_final2.Pages.Players
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Players == null || Player == null)
+          if (!ModelState.IsValid || _context.Player == null || Player == null)
             {
                 return Page();
             }
 
-            _context.Players.Add(Player);
+            _context.Player.Add(Player);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

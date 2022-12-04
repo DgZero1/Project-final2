@@ -23,12 +23,12 @@ namespace Project_final2.Pages.Teams
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Teams == null)
+            if (id == null || _context.Team == null)
             {
                 return NotFound();
             }
 
-            var team = await _context.Teams.FirstOrDefaultAsync(m => m.TeamID == id);
+            var team = await _context.Team.FirstOrDefaultAsync(m => m.TeamID == id);
 
             if (team == null)
             {
@@ -43,16 +43,16 @@ namespace Project_final2.Pages.Teams
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Teams == null)
+            if (id == null || _context.Team == null)
             {
                 return NotFound();
             }
-            var team = await _context.Teams.FindAsync(id);
+            var team = await _context.Team.FindAsync(id);
 
             if (team != null)
             {
                 Team = team;
-                _context.Teams.Remove(Team);
+                _context.Team.Remove(Team);
                 await _context.SaveChangesAsync();
             }
 

@@ -23,12 +23,12 @@ namespace Project_final2.Pages.Players
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Player== null)
             {
                 return NotFound();
             }
 
-            var player = await _context.Players.FirstOrDefaultAsync(m => m.PlayerID == id);
+            var player = await _context.Player.FirstOrDefaultAsync(m => m.PlayerID == id);
 
             if (player == null)
             {
@@ -43,16 +43,16 @@ namespace Project_final2.Pages.Players
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Player == null)
             {
                 return NotFound();
             }
-            var player = await _context.Players.FindAsync(id);
+            var player = await _context.Player.FindAsync(id);
 
             if (player != null)
             {
                 Player = player;
-                _context.Players.Remove(Player);
+                _context.Player.Remove(Player);
                 await _context.SaveChangesAsync();
             }
 

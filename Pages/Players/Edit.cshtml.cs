@@ -24,18 +24,18 @@ namespace Project_final2.Pages.Players
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Players == null)
+            if (id == null || _context.Player == null)
             {
                 return NotFound();
             }
 
-            var player =  await _context.Players.FirstOrDefaultAsync(m => m.PlayerID == id);
+            var player =  await _context.Player.FirstOrDefaultAsync(m => m.PlayerID == id);
             if (player == null)
             {
                 return NotFound();
             }
             Player = player;
-           ViewData["TeamID"] = new SelectList(_context.Teams, "TeamID", "TeamID");
+           ViewData["TeamID"] = new SelectList(_context.Team, "TeamID", "TeamID");
             return Page();
         }
 
@@ -71,7 +71,7 @@ namespace Project_final2.Pages.Players
 
         private bool PlayerExists(int id)
         {
-          return (_context.Players?.Any(e => e.PlayerID == id)).GetValueOrDefault();
+          return (_context.Player?.Any(e => e.PlayerID == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final
@@ -7,16 +6,55 @@ namespace Final
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new AppDbContext(
-                serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>()))
+            using (var context = new AppDbContext(serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>()))
             {
-              
-                if (context.Players.Any())
+
+                if (context.Team.Any())
                 {
-                    return; 
+                    return;
                 }
-                
-                   List<Player> Players = new List<Player> {
+                    List<Team> Teams = new List<Team> {
+                    new Team
+                     {  TeamName = "Celtics",
+                        Coach= "Snider",
+                        Location="Boston"
+                     },
+                      new Team
+                     {  TeamName = "Miami Heat",
+                        Coach= "Burrito",
+                        Location="Miami"
+                     },
+                     new Team
+                     {  TeamName = "Lakers",
+                        Coach= "James",
+                        Location="Los Angelos"
+                     },
+                     new Team
+                     {  TeamName = "Bulls",
+                        Coach= "Jones",
+                        Location="Amarillo"
+                     },
+                     new Team
+                     {  TeamName = "Mavericks",
+                        Coach= "Donic",
+                        Location="Dallas"
+                     },
+                     new Team
+                     {  TeamName = "Rockets",
+                        Coach= "Guttierez",
+                        Location="Houston"
+                     },
+                     new Team
+                     {  TeamName = "Spurs",
+                        Coach= "papavich",
+                        Location="San Antonio"
+                     },
+
+                };
+                    context.AddRange(Teams);
+                    context.SaveChanges();
+
+                    List<Player> Players = new List<Player> {
                     new Player
                     {
                         FirstName ="Willam",
@@ -160,7 +198,7 @@ namespace Final
                         Points= 0,
                         Assist = 0,
                         TeamID=2,
-                        
+
                     },
                     new Player
                     {
@@ -219,56 +257,19 @@ namespace Final
                         TeamID= 5
                     }
                    };
-                context.AddRange(Players);
-                List<Team>  Teams = new List<Team> {
-                    new Team
-                     {  TeamName = "Celtics",
-                        Coach= "Snider",
-                        Location="Boston"
-                     },
-                      new Team
-                     {  TeamName = "Miami Heat",
-                        Coach= "Burrito",
-                        Location="Miami"
-                     },
-                     new Team
-                     {  TeamName = "Lakers",
-                        Coach= "James",
-                        Location="Los Angelos"
-                     },
-                     new Team
-                     {  TeamName = "Bulls",
-                        Coach= "Jones",
-                        Location="Amarillo"
-                     },
-                     new Team
-                     {  TeamName = "Mavericks",
-                        Coach= "Donic",
-                        Location="Dallas"
-                     },
-                     new Team
-                     {  TeamName = "Rockets",
-                        Coach= "Guttierez",
-                        Location="Houston"
-                     },
-                     new Team
-                     {  TeamName = "Spurs",
-                        Coach= "papavich",
-                        Location="San Antonio"
-                     },
-                   
-                };
-                context.AddRange( Teams);
-                    
-                
-                
-               
+                    context.AddRange(Players);
 
-                context.SaveChanges();
+
+
+
+
+
+                    context.SaveChanges();
+                }
 
             }
         }
     }
-}
+
 
                 

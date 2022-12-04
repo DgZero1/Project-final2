@@ -22,9 +22,9 @@ namespace Project_final2.Pages.Teams
 
         public async Task OnGetAsync()
         {
-            if (_context.Teams != null)
+            if (_context.Team != null)
             {
-                Team = await _context.Teams.ToListAsync();
+                Team = await _context.Team.ToListAsync();
             }
         }
     }
