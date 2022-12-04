@@ -13,15 +13,16 @@ namespace Final
                 if (context.Players.Any())
                 {
                     return; 
+                }
                 
-                context.Players.AddRange(
+                   List<Player> Players = new List<Player> {
                     new Player
                     {
                         FirstName ="Willam",
                         LastName ="Burn",
                         Points= 18,
                         Assist = 12,
-                        
+                         TeamID= 5
                     },
                     new Player
                     {
@@ -29,7 +30,7 @@ namespace Final
                         LastName ="Grey",
                         Points= 18,
                         Assist = 4,
-                        
+                         TeamID= 4
                     },
                     new Player
                     {
@@ -37,7 +38,7 @@ namespace Final
                         LastName ="Phansna",
                         Points= 4,
                         Assist = 33,
-                        
+                         TeamID= 3
                     },
                     new Player
                     {
@@ -45,7 +46,7 @@ namespace Final
                         LastName ="Blaze",
                         Points= 19,
                         Assist =8,
-                        
+                         TeamID= 2
                     },
                     new Player
                     {
@@ -53,7 +54,7 @@ namespace Final
                         LastName ="wiggins",
                         Points= 22,
                         Assist =7,
-                        
+                         TeamID= 1
                     },
                     new Player
                     {
@@ -61,7 +62,7 @@ namespace Final
                         LastName ="Jackson",
                         Points= 45,
                         Assist = 12,
-                        
+                         TeamID= 4
                     },
                     new Player
                     {
@@ -69,7 +70,7 @@ namespace Final
                         LastName ="Where",
                         Points= 0,
                         Assist = 0,
-                        
+                         TeamID= 5
                     },
                     new Player
                     {
@@ -77,7 +78,7 @@ namespace Final
                         LastName ="Mahomes",
                         Points= 14,
                         Assist = 12,
-                        
+                         TeamID= 6
                     },
                     new Player
                     {
@@ -85,7 +86,7 @@ namespace Final
                         LastName ="Lightyear",
                         Points= 8,
                         Assist = 12,
-                        
+                         TeamID= 7
                     },
                     new Player
                     {
@@ -93,7 +94,7 @@ namespace Final
                         LastName ="johnson",
                         Points= 8,
                         Assist = 45,
-                        
+                         TeamID= 1
                     },
                      new Player
                     {
@@ -101,7 +102,7 @@ namespace Final
                         LastName ="Price",
                         Points= 30,
                         Assist = 4,
-                        
+                         TeamID= 2
                     },
                     new Player
                     {
@@ -109,7 +110,7 @@ namespace Final
                         LastName ="Country",
                         Points= 50,
                         Assist = 2,
-                        
+                         TeamID= 3
                     },
                     new Player
                     {
@@ -117,7 +118,7 @@ namespace Final
                         LastName ="Allen",
                         Points= 25,
                         Assist = 10,
-                        
+                         TeamID= 7
                     },
                     new Player
                     {
@@ -125,7 +126,7 @@ namespace Final
                         LastName ="Bolton",
                         Points= 18,
                         Assist = 12,
-                        
+                         TeamID= 6
                     },
                     new Player
                     {
@@ -133,7 +134,7 @@ namespace Final
                         LastName ="Wayne",
                         Points= 45,
                         Assist = 13,
-                        
+                         TeamID= 5
                     },
                     new Player
                     {
@@ -141,7 +142,7 @@ namespace Final
                         LastName ="Kent",
                         Points= 999,
                         Assist = 999,
-                        
+                         TeamID= 4
                     },
                     new Player
                     {
@@ -149,7 +150,7 @@ namespace Final
                         LastName ="Parker",
                         Points= 22,
                         Assist = 30,
-                        
+                         TeamID= 3
                     },
                     new Player
                     {
@@ -157,6 +158,7 @@ namespace Final
                         LastName ="James",
                         Points= 0,
                         Assist = 0,
+                        TeamID=2,
                         
                     },
                     new Player
@@ -165,7 +167,7 @@ namespace Final
                         LastName ="James",
                         Points= 100,
                         Assist = 100,
-                        
+                         TeamID= 1
                     },
                     new Player
                     {
@@ -173,7 +175,7 @@ namespace Final
                         LastName ="Espinoza",
                         Points= 33,
                         Assist = 7,
-                        
+                         TeamID= 2
                     },
                     new Player
                     {
@@ -181,7 +183,7 @@ namespace Final
                         LastName ="Wright",
                         Points= 100,
                         Assist = 2,
-                        
+                         TeamID= 3
                     },
                     new Player
                     {
@@ -189,7 +191,7 @@ namespace Final
                         LastName ="Bryant",
                         Points= 81,
                         Assist = 8,
-                        
+                         TeamID= 4
                     },
                     new Player
                     {
@@ -197,7 +199,7 @@ namespace Final
                         LastName ="Johnson",
                         Points= 3,
                         Assist = 45,
-                        
+                         TeamID= 5
                     },
                     new Player
                     {
@@ -205,7 +207,7 @@ namespace Final
                         LastName ="White",
                         Points= 8,
                         Assist = 1,
-                        
+                         TeamID= 7
                     },
                     new Player
                     {
@@ -213,12 +215,53 @@ namespace Final
                         LastName ="George",
                         Points= 30,
                         Assist = 10,
-                        
+                        TeamID= 5
                     }
+                   };
+                context.AddRange(Players);
+                List<Team>  Teams = new List<Team> {
+                    new Team
+                     {  TeamName = "Celtics",
+                        Coach= "Snider",
+                        Location="Boston"
+                     },
+                      new Team
+                     {  TeamName = "Miami Heat",
+                        Coach= "Burrito",
+                        Location="Miami"
+                     },
+                     new Team
+                     {  TeamName = "Lakers",
+                        Coach= "James",
+                        Location="Los Angelos"
+                     },
+                     new Team
+                     {  TeamName = "Bulls",
+                        Coach= "Jones",
+                        Location="Amarillo"
+                     },
+                     new Team
+                     {  TeamName = "Mavericks",
+                        Coach= "Donic",
+                        Location="Dallas"
+                     },
+                     new Team
+                     {  TeamName = "Rockets",
+                        Coach= "Guttierez",
+                        Location="Houston"
+                     },
+                     new Team
+                     {  TeamName = "Spurs",
+                        Coach= "papavich",
+                        Location="San Antonio"
+                     },
+                   
+                };
+                context.AddRange( Teams);
                     
-                );
                 
                 
+               
 
                 context.SaveChanges();
 
@@ -226,5 +269,5 @@ namespace Final
         }
     }
 }
-}
+
                 
