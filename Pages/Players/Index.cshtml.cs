@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Final;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Project_final2.Pages.Players
 {
@@ -30,13 +31,17 @@ namespace Project_final2.Pages.Players
 
          public string CurrentSort {get; set;} = string.Empty;
 
+         public string CurrentFilter {get; set;} = string.Empty;
+
        
 
 
 
         public async Task OnGetAsync()
         {
-            var query =_context.Player.Select(p => p);
+           
+            
+            var query = _context.Player.Select(p => p);
             
             switch (CurrentSort)
                 {
@@ -51,11 +56,12 @@ namespace Project_final2.Pages.Players
                    
                 }
 
-            if (_context.Player != null)
-            {
-                Player = await _context.Player.Skip((PageNum-1)*PageSize).Take(PageSize)
-                .Include(p => p.Team).ToListAsync();
+            
+            
+                Player = await query.Skip((PageNum-1)*PageSize).Take(PageSize).Include(p => p.Team).ToListAsync();
             }
         }
     }
-}
+
+
+// .Include(p => p.Team)

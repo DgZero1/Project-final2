@@ -24,7 +24,7 @@ namespace Project_final2.Pages.Teams
         {
             if (_context.Team != null)
             {
-                Team = await _context.Team.ToListAsync();
+                Team = await _context.Team.Include(p => p.Players).ToListAsync();
             }
         }
     }
